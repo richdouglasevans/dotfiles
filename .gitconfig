@@ -1,0 +1,21 @@
+[user]
+    name = richdouglasevans
+    email = rich.douglas.evans@gmail.com
+[core]
+    editor = vim
+    autocrlf = input
+[alias]
+    st = status --short
+    lp = log --oneline --decorate -n 10
+    co = checkout
+    cm = commit
+    br = branch
+    amend = commit --amend
+    which-commits = log --all --grep
+    which-commits-files = diff-tree --no-commit-id --name-only -r
+    home = rev-parse --show-toplevel
+[push]
+    default = simple
+[credential]
+    helper = cache --timeout=604800
+
