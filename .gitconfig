@@ -1,21 +1,29 @@
-[user]
-    name = richdouglasevans
-    email = rich.douglas.evans@gmail.com
-[core]
-    editor = vim
-    autocrlf = input
 [alias]
-    st = status --short
-    lp = log --oneline --decorate -n 10
-    co = checkout
-    cm = commit
-    br = branch
-    amend = commit --amend
-    which-commits = log --all --grep
-    which-commits-files = diff-tree --no-commit-id --name-only -r
-    home = rev-parse --show-toplevel
-[push]
-    default = simple
-[credential]
-    helper = cache --timeout=604800
+	lp = log --oneline -10
+	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate -10
+	lg = log --oneline --decorate --stat --graph -10
+	wut = log --all --grep
+	wut-files = diff-tree --no-commit-id --name-only -r
+	co = checkout
+	com = checkout master
+	gimme = !git pull --rebase origin master
+	st = status --short
+	ca = commit -a
+	cam = commit -am
+	sq = rebase -i
+	blat = reset --hard HEAD
+	yolo = !git add -A && git commit -m \"$(curl -s whatthecommit.com/index.txt)\"
+	share = !git push -u origin `git rev-parse --abbrev-ref HEAD`
 
+	glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+glogs = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+[user]
+	name = rich
+[push]
+	default = simple
+[core]
+	autocrlf = false
+	editor = subl --wait
+[grep]
+	lineNumber = true
